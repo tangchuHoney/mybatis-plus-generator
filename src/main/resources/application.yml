@@ -1,0 +1,29 @@
+server:
+  port: 70001
+
+spring:
+  application:
+    name: mapper-plus-demo
+
+  datasource:
+    username: ${db.username}
+    password: ${db.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${db.host}:${db.port}/${db.name}?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+db:
+  host: 127.0.0.1
+  port: 3306
+  name: mybatis_plus_demo
+  username: root
+  password: root
+
+# MP 配置
+mybatis-plus:
+  type-handlers-package: com.example.mybatisplusdemo.mapper.handler
+  configuration:
+    call-setters-on-nulls: true #不加这个查询数据为空时，字段将被隐藏
+
+logging:
+  config: classpath:logback-spring.xml
+  path: logs
+
